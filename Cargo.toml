@@ -3,5 +3,9 @@ name = "vst2-sys"
 version = "0.1.0"
 authors = ["Micah Johnston <micah@glowcoil.com>"]
 edition = "2018"
+description = "Bindings for the VST 2.4 API"
+repository = "https://github.com/RustAudio/vst2-sys"
+readme = "README.md"
+license = "MIT/Apache-2.0"
 
 [dependencies]
