@@ -134,6 +134,7 @@ pub mod time_info_flags {
 }
 
 #[repr(C)]
+#[derive(Copy, Clone)]
 pub struct MidiEvent {
     pub event_type: i32,
     pub byte_size: i32,
@@ -149,6 +150,7 @@ pub struct MidiEvent {
 }
 
 #[repr(C)]
+#[derive(Copy, Clone)]
 pub struct SysExEvent {
     pub event_type: i32,
     pub byte_size: i32,
@@ -161,15 +163,17 @@ pub struct SysExEvent {
 }
 
 #[repr(C)]
+#[derive(Copy, Clone)]
 pub struct Event {
-    dump: [u8; mem::size_of::<MidiEvent>()],
+    pub dump: [u8; mem::size_of::<MidiEvent>()],
 }
 
 #[repr(C)]
+#[derive(Copy, Clone)]
 pub struct Events {
-    num_events: i32,
-    reserved: *const c_void,
-    events: [*const Event; 2],
+    pub num_events: i32,
+    pub reserved: *const c_void,
+    pub events: [*const Event; 2],
 }
 
 pub mod string_constants {
@@ -197,6 +201,7 @@ pub mod plug_category {
 }
 
 #[repr(C)]
+#[derive(Copy, Clone)]
 pub struct ParameterProperties {
     pub step_float: f32,
     pub small_step_float: f32,
@@ -227,6 +232,7 @@ pub mod parameter_flags {
 }
 
 #[repr(C)]
+#[derive(Copy, Clone)]
 pub struct AEffect {
     pub magic: i32,
     pub dispatcher: extern "C" fn(*mut AEffect, i32, i32, isize, *mut c_void, f32) -> isize,
@@ -251,6 +257,7 @@ pub struct AEffect {
 }
 
 #[repr(C)]
+#[derive(Copy, Clone)]
 pub struct TimeInfo {
     pub sample_pos: f64,
     pub sample_rate: f64,
