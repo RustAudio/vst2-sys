@@ -1,6 +1,6 @@
 [package]
 name = "vst2-sys"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Micah Johnston <micah@glowcoil.com>"]
 edition = "2018"
 description = "Bindings for the VST 2.4 API"
