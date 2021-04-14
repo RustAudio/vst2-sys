@@ -254,6 +254,7 @@ pub struct AEffect {
     pub unique_id: i32,
     pub version: i32,
     pub process_replacing: extern "C" fn(*mut AEffect, *const *const f32, *mut *mut f32, i32),
+    pub process_double_replacing: extern "C" fn(*mut AEffect, *const *const f64, *mut *mut f64, i32),
 }
 
 #[repr(C)]
@@ -273,6 +274,15 @@ pub struct TimeInfo {
     pub smpte_frame_rate: i32,
     pub samples_to_next_clock: i32,
     pub flags: i32,
+}
+
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct Rect {
+    pub top: i16,
+    pub left: i16,
+    pub bottom: i16,
+    pub right: i16,
 }
 
 pub type HostCallbackProc = extern "C" fn(*mut AEffect, i32, i32, isize, *mut c_void, f32) -> isize;
